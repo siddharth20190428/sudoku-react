@@ -2,9 +2,9 @@
 
 > Siddharth
 > Venom
-> Vinit (Icons, number-panel, Timer)
+> Vinit
 > Annu (Main Grid, css-highlights, modals(wining))
-> Soumya
+> Soumya (Icons, number-panel, Timer)
 
 ---------Front End---------
 UI
