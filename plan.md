@@ -12,13 +12,13 @@ Rules / How to play
 Timer
 
 -----Mains ----
-=> Grid
+=> Grid 👍
 
-=> Number selection panel
+=> Number selection panel (API)
 
-=> numbers shown
+=> numbers shown (API)
 
-=> Difficulty
+=> Difficulty (API)
 -> numbers given in sub-grid as well as grid
 Easy - 38/81
 Medium - 30/81
