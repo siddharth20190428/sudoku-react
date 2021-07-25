@@ -1,0 +1,36 @@
+*{
+ margin: 0px;
+ padding: 0px;
+}
+
+.outterContainer{
+    border: 1px solid #4D5E74;
+    display: grid;
+    grid-template-rows:repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    width: 450px;
+    height: 450px;
+
+
+}
+
+.grid-item{
+    border: 1px solid #4D5E74;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+   
+
+}
+
+.sub-grid-item{
+    border: .5px solid #D7DCE4;
+    font-size: 30px;
+    text-align: center;
+    color: #485A71;
+}
+
+
+.header{
+    margin-bottom: 20px;
+}
