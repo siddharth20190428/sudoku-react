@@ -1,4 +1,12 @@
 .App{
-  margin-top: 90px;
-  margin-left: 150px;
+  margin-top: 50px;
+  margin-left: 200px;
+  display: flex;
+  flex-wrap: wrap;
 }
+
+.playSudoko{
+  margin-bottom: 20px;
+}
+
+
