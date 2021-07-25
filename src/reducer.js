@@ -15,6 +15,7 @@ export const actionTypes = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_SELECTED_CELL":
+      console.log({ ...state, selectedCell: action.cell });
       return { ...state, selectedCell: action.cell };
 
     default:
