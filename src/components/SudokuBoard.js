@@ -1,9 +1,9 @@
 import React from "react";
-import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
 const SudokuBoard = () => {
   const [{ board }, dispatch] = useStateValue();
+<<<<<<< HEAD
   const onSelect = (row, col) => {
     dispatch({
       type: actionTypes.setSelectedCell,
@@ -31,28 +31,32 @@ const SudokuBoard = () => {
     // console.log(cellArr);
     // cellArr = [];
   };
+=======
+>>>>>>> b874a14ddb55616192166c1cdb8c8cc8636ed9d8
 
   return (
     <div className="board">
-      {/* nr = normal row, nc = normal column */}
-      {board.map((rowArray, rowIndex) => {
+      {board.map((row, ind) => {
         return (
           <div
-            key={`row-${rowIndex}`}
+            key={`row-${ind}`}
             className={`row ${
-              rowIndex !== 8 ? (rowIndex % 3 === 2 ? "row-end" : "nr") : ""
+              ind !== 8 ? (ind % 3 === 2 ? "row-end" : "nr") : ""
             }`}
           >
-            {rowArray.map((cell, index) => (
+            {row.map((cell, col) => (
               <div
-                key={`cell-${rowIndex}-${index}`}
+                key={`cell-${ind}-${col}`}
                 className={`col ${
-                  index !== 8 ? (index % 3 === 2 ? "col-end" : "nc") : ""
+                  col !== 8 ? (col % 3 === 2 ? "col-end" : "nc") : ""
                 }`}
+<<<<<<< HEAD
                 onClick={(e) => {
                   addNumberOnClick(e);
                 }}
                 // contentEditable={true}
+=======
+>>>>>>> b874a14ddb55616192166c1cdb8c8cc8636ed9d8
               >
                 {cell !== "." ? cell : ""}
               </div>
