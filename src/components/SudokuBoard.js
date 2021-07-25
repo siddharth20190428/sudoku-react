@@ -1,66 +1,76 @@
 import React from "react";
+import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
 const SudokuBoard = () => {
-  const [{ board }, dispatch] = useStateValue();
-<<<<<<< HEAD
-  const onSelect = (row, col) => {
-    dispatch({
-      type: actionTypes.setSelectedCell,
-      selectedCell: { row, col },
-    });
-  };
+  const [{ board, selectedCell }, dispatch] = useStateValue();
 
   let cellArr = [];
 
-  const addNumberOnClick = (e) => {
+  const addNumberOnClick = (e, row, col) => {
     // add row and col number on click
     // e.target.innerHTML = `<input type="number" max="9" min="1" maxLength="1"/>`;
-    // console.log(e.target);
 
-    // console.log(cellArr);
+    // e.target.addEventListener("keydown", console.log(e));
+
     cellArr.push(e.target);
     e.target.classList.add("highlight");
+    // console.log(e.target.innerHTML);
+
     if (cellArr.length > 1) {
       cellArr[0].classList.remove("highlight");
       cellArr.shift();
     }
 
-    // console.log(cellArr[0].classList);
-    // console.log(cellArr[0].classList);
-    // console.log(cellArr);
-    // cellArr = [];
+    dispatch({
+      type: actionTypes.setSelectedCell,
+      cell: { row, col },
+    });
   };
-=======
->>>>>>> b874a14ddb55616192166c1cdb8c8cc8636ed9d8
 
   return (
     <div className="board">
-      {board.map((row, ind) => {
+      {/* nr = normal row, nc = normal column */}
+      {board.map((rowArray, rowIndex) => {
         return (
           <div
-            key={`row-${ind}`}
+            key={`row-${rowIndex}`}
             className={`row ${
-              ind !== 8 ? (ind % 3 === 2 ? "row-end" : "nr") : ""
-            }`}
+              rowIndex !== 8 ? (rowIndex % 3 === 2 ? "row-end" : "nr") : ""
+            } `}
           >
-            {row.map((cell, col) => (
-              <div
-                key={`cell-${ind}-${col}`}
-                className={`col ${
-                  col !== 8 ? (col % 3 === 2 ? "col-end" : "nc") : ""
-                }`}
-<<<<<<< HEAD
-                onClick={(e) => {
-                  addNumberOnClick(e);
-                }}
-                // contentEditable={true}
-=======
->>>>>>> b874a14ddb55616192166c1cdb8c8cc8636ed9d8
-              >
-                {cell !== "." ? cell : ""}
-              </div>
-            ))}
+            {rowArray.map((cell, index) => {
+              let currR = Math.floor(rowIndex / 3),
+                currC = Math.floor(index / 3),
+                selR = Math.floor(selectedCell.row / 3),
+                selC = Math.floor(selectedCell.col / 3);
+              let gridArea = selR === currR && selC === currC;
+              console.log(gridArea);
+              return (
+                <div
+                  key={`cell-${rowIndex}-${index}`}
+                  className={`col ${
+                    index !== 8 ? (index % 3 === 2 ? "col-end " : "nc") : ""
+                  } ${
+                    rowIndex === selectedCell.row && index === selectedCell.col
+                      ? "highlight"
+                      : ""
+                  } ${
+                    rowIndex === selectedCell.row ||
+                    index === selectedCell.col ||
+                    gridArea
+                      ? "dim-highlight"
+                      : ""
+                  }
+                `}
+                  onClick={(e) => {
+                    addNumberOnClick(e, rowIndex, index);
+                  }}
+                >
+                  {cell !== "." ? cell : ""}
+                </div>
+              );
+            })}
           </div>
         );
       })}

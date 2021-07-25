@@ -1,12 +1,37 @@
 .App {
-  margin-top: 50px;
-  margin-left: 200px;
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.playSudoko {
-  margin-bottom: 20px;
+.game {
+  display: flex;
+}
+
+.board {
+  border: 2px solid black;
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-rows: repeat(9, 1fr);
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nr {
+  border-bottom: 1px solid #aaa;
+}
+
+.nc {
+  border-right: 1px solid #aaa;
 }
 
 .row-end {
@@ -14,12 +39,6 @@
 }
 .col-end {
   border-right: 2px solid black;
-}
-
-input {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -34,6 +53,10 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.dim-highlight {
+  background-color: rgba(0, 255, 255, 0.267);
+}
+
 .highlight {
-  background-color: aqua;
+  background-color: aqua !important;
 }

@@ -1,20 +1,20 @@
 import React from "react";
-import ReactDom from "react-dom";
 import "./App.css";
-import Board from "./components/Board";
+// import Board from "./components/Board";
+import SudokuBoard from "./components/SudokuBoard";
 import Header from "./components/Header";
 import InputPanel from "./components/InputPanel";
 
 function App() {
-  return (<div className="App">
-    <hr />
-    <Header /> 
-    <Board />
-    <InputPanel />
-   </div>
+  return (
+    <div className="App">
+      <Header />
+      <div className="game">
+        <SudokuBoard />
+        <InputPanel />
+      </div>
+    </div>
   );
 }
-
-ReactDom.render(<App />, document.getElementById("root"))
 
 export default App;

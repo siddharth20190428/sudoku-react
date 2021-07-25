@@ -4,14 +4,11 @@ const InputPanel = () => {
   return (
     <>
       <div className="inputContainer">
-          <div className="actionIcon">
-        <i class="fa fa-undo fa-1.5x circle-icon" ></i>
-        <i class="fa fa-eraser" aria-hidden="true"></i>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-
-
-
-</div>
+        <div className="actionIcon">
+          <i className="fa fa-eraser" aria-hidden="true"></i>
+          <i className="fa fa-pencil" aria-hidden="true"></i>
+          <i className="fa fa-undo fa-1.5x circle-icon"></i>
+        </div>
         <div className="numPad">
           <div>1</div>
           <div>2</div>
