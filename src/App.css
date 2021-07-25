@@ -1,5 +1,5 @@
 .board {
-  border: 1px solid black;
+  border: 2px solid black;
   width: 450px;
   height: 450px;
   display: grid;
@@ -15,16 +15,16 @@
   align-items: center;
 }
 .nr {
-  border-bottom: 1px solid #888;
+  border-bottom: 1px solid #aaa;
 }
 
 .nc {
-  border-right: 1px solid #888;
+  border-right: 1px solid #aaa;
 }
 
 .row-end {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 .col-end {
-  border-right: 1px solid black;
+  border-right: 2px solid black;
 }

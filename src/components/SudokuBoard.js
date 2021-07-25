@@ -1,25 +1,33 @@
 import React from "react";
+import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
 const SudokuBoard = () => {
   const [{ board }, dispatch] = useStateValue();
-
+  const onSelect = (row, col) => {
+    dispatch({
+      type: actionTypes.setSelectedCell,
+      selectedCell: { row, col },
+    });
+  };
   return (
     <div className="board">
-      {board.map((row, ind) => {
+      {/* nr = normal row, nc = normal column */}
+      {board.map((rowArray, rowIndex) => {
         return (
           <div
-            key={`row-${ind}`}
+            key={`row-${rowIndex}`}
             className={`row ${
-              ind !== 8 ? (ind % 3 === 2 ? "row-end" : "nr") : ""
+              rowIndex !== 8 ? (rowIndex % 3 === 2 ? "row-end" : "nr") : ""
             }`}
           >
-            {row.map((cell, col) => (
+            {rowArray.map((cell, index) => (
               <div
-                key={`cell-${ind}-${col}`}
+                key={`cell-${rowIndex}-${index}`}
                 className={`col ${
-                  col !== 8 ? (col % 3 === 2 ? "col-end" : "nc") : ""
+                  index !== 8 ? (index % 3 === 2 ? "col-end" : "nc") : ""
                 }`}
+                onClick={}
               >
                 {cell !== "." ? cell : ""}
               </div>
