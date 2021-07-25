@@ -56,6 +56,17 @@
   font-size: 35px;
   border: 1px solid #485a71;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.numPad > div:hover,
+.actionIcon > i:hover {
+  background-color: #e2e5eb;
+}
+
+.numPad > div:active,
+.actionIcon > i:active {
+  transform: scale(0.99);
 }
 
 .actionIcon {
@@ -73,6 +84,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .timmer {

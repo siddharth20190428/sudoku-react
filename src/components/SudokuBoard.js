@@ -3,28 +3,24 @@ import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
 const SudokuBoard = () => {
-  const [{ board, selectedCell }, dispatch] = useStateValue();
+  const [{ board, solvedBoard, selectedCell }, dispatch] = useStateValue();
 
   let cellArr = [];
 
   const addNumberOnClick = (e, row, col) => {
-    // add row and col number on click
-    // e.target.innerHTML = `<input type="number" max="9" min="1" maxLength="1"/>`;
-
-    // e.target.addEventListener("keydown", console.log(e));
-
     cellArr.push(e.target);
     e.target.classList.add("highlight");
-    // console.log(e.target.innerHTML);
 
     if (cellArr.length > 1) {
       cellArr[0].classList.remove("highlight");
       cellArr.shift();
     }
 
+    const currVal = e.target.innerHTML;
+
     dispatch({
       type: actionTypes.setSelectedCell,
-      cell: { row, col },
+      cell: { row, col, currVal },
     });
   };
 
@@ -45,9 +41,22 @@ const SudokuBoard = () => {
                 selR = Math.floor(selectedCell.row / 3),
                 selC = Math.floor(selectedCell.col / 3);
               let gridArea = selR === currR && selC === currC;
-              console.log(gridArea);
+
+              // let myStyle = {};
+
+              // if (selectedCell.correct === "1") {
+              //   myStyle = {
+              //     backgroundColor: "green",
+              //   };
+              // } else if (selectedCell.correct === "0") {
+              //   myStyle = {
+              //     color: "red",
+              //   };
+              // }
+
               return (
                 <div
+                  // style={myStyle}
                   key={`cell-${rowIndex}-${index}`}
                   className={`col ${
                     index !== 8 ? (index % 3 === 2 ? "col-end " : "nc") : ""
