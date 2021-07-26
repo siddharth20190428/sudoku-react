@@ -20,8 +20,10 @@ const SudokuBoard = () => {
   let cellArr = [];
 
   if (JSON.stringify(board) === JSON.stringify(solvedBoard)) {
-    handleOpen();
     console.log("you won");
+    setTimeout(() => {
+      setOpen(true);
+    }, 2000);
   }
 
   const addNumberOnClick = (e, row, col) => {

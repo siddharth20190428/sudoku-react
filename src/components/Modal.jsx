@@ -51,9 +51,6 @@ export default function SimpleModal({ open, handleOpen, handleClose }) {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button>
       <Modal
         className="modal"
         open={open}

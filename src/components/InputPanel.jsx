@@ -24,8 +24,6 @@ const InputPanel = () => {
     });
   };
 
-  const numpadArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
   const resetBoard = () => {
     let newBoard = JSON.parse(JSON.stringify(initialBoard));
 
@@ -34,6 +32,8 @@ const InputPanel = () => {
       board: newBoard,
     });
   };
+
+  const numpadArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <>
