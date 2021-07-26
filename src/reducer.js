@@ -20,6 +20,7 @@ const solvedBoard = sudoku.solver.solve(board);
 
 export const initialState = {
   difficulty: difficulty,
+  paused: false,
   initialBoard: sudoku.conversions.stringToGrid(board),
   board: sudoku.conversions.stringToGrid(board),
   solvedBoard: sudoku.conversions.stringToGrid(solvedBoard),
@@ -35,6 +36,7 @@ export const actionTypes = {
   setSelectedCell: "SET_SELECTED_CELL",
   setBoard: "SET_BOARD",
   setDifficulty: "SET_DIFFICULTY",
+  setPaused: "SET_PAUSED",
 };
 
 const reducer = (state, action) => {
@@ -45,6 +47,8 @@ const reducer = (state, action) => {
       return { ...state, board: action.board };
     case "SET_DIFFICULTY":
       return { ...state, difficulty: action.difficulty };
+    case "SET_PAUSED":
+      return { ...state, paused: action.paused };
     default:
       return state;
   }

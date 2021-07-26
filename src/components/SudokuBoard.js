@@ -14,7 +14,7 @@ const SudokuBoard = () => {
     setOpen(false);
   };
 
-  const [{ board, selectedCell, initialBoard, solvedBoard }, dispatch] =
+  const [{ board, paused, selectedCell, initialBoard, solvedBoard }, dispatch] =
     useStateValue();
 
   let cellArr = [];
@@ -68,9 +68,18 @@ const SudokuBoard = () => {
                   selC = Math.floor(selectedCell.col / 3);
                 let gridArea = selR === currR && selC === currC;
 
+                let myStyle = {};
+
+                if (paused) {
+                  myStyle = {
+                    pointerEvents: "none",
+                  };
+                }
+
                 return (
                   <div
                     key={`cell-${rowIndex}-${index}`}
+                    style={myStyle}
                     className={`col ${
                       index !== 8 ? (index % 3 === 2 ? "col-end " : "nc") : ""
                     } ${

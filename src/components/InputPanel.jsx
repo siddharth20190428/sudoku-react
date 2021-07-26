@@ -57,9 +57,27 @@ const InputPanel = () => {
           </div>
 
           {isRunning ? (
-            <i onClick={pause} className="fa-solid fa-circle-pause"></i>
+            <i
+              onClick={() => {
+                dispatch({
+                  type: actionTypes.setPaused,
+                  paused: true,
+                });
+                pause();
+              }}
+              className="fa-solid fa-circle-pause"
+            ></i>
           ) : (
-            <i onClick={start} className="fa-solid fa-play"></i>
+            <i
+              onClick={() => {
+                dispatch({
+                  type: actionTypes.setPaused,
+                  paused: false,
+                });
+                start();
+              }}
+              className="fa-solid fa-play"
+            ></i>
           )}
 
           <i onClick={() => resetBoard()} className="fa-solid fa-repeat"></i>
