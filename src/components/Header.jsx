@@ -82,7 +82,7 @@ const Header = () => {
       </div>
       <div className="header-mid">
         <div className="timer">
-          <div className="timer-label">00:04:16</div>
+          <div className="timer-label">00:04:25</div>
         </div>
       </div>
       <div className="header-right">

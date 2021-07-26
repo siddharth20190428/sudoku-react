@@ -99,6 +99,9 @@ const SudokuBoard = () => {
                       initialBoard[rowIndex][index] === "." &&
                       board[rowIndex][index] === solvedBoard[rowIndex][index]
                         ? "correct"
+                        : board[rowIndex][index] !==
+                          solvedBoard[rowIndex][index]
+                        ? "red-num"
                         : ""
                     } ${
                       selectedCell.currVal !== "." &&

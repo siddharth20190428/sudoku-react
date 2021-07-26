@@ -95,6 +95,11 @@ input[type="number"] {
   font-weight: 600 !important;
   color: var(--additional);
 }
+
+.red-num {
+  color: var(--danger);
+}
+
 .num-highlight {
   border: 1px solid #555;
   background-color: #7c5295;
