@@ -23,7 +23,17 @@
   margin-top: 3rem;
 }
 
+@keyframes myanimation {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .board {
+  animation: myanimation 0.5s ease-in;
   border: 2px solid #fff;
   border-radius: 8px;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
@@ -72,7 +82,7 @@ input[type="number"] {
 }
 
 .dim-highlight {
-  background-color: #937392 !important;
+  background-color: #bca0dc !important;
 }
 
 .highlight {
@@ -87,5 +97,5 @@ input[type="number"] {
 }
 .num-highlight {
   border: 1px solid #555;
-  background-color: #5d2deb;
+  background-color: #7c5295;
 }

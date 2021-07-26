@@ -1,7 +1,7 @@
 import SudokuToolCollection from "sudokutoolcollection";
 const sudoku = SudokuToolCollection();
 
-const board = sudoku.generator.generate(38);
+let board = sudoku.generator.generate(38);
 const solvedBoard = sudoku.solver.solve(board);
 
 export const initialState = {

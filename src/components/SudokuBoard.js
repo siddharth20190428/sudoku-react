@@ -8,6 +8,10 @@ const SudokuBoard = () => {
 
   let cellArr = [];
 
+  if (JSON.stringify(board) === JSON.stringify(solvedBoard)) {
+    alert("you won");
+  }
+
   const addNumberOnClick = (e, row, col) => {
     cellArr.push(e.target);
     e.target.classList.add("highlight");

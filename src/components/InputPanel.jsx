@@ -6,8 +6,6 @@ const InputPanel = () => {
   const [{ board, selectedCell, solvedBoard, initialBoard }, dispatch] =
     useStateValue();
 
-  // console.log(selectedCell.currVal);
-
   const setNum = (e) => {
     let newBoard = [...board];
     let row = selectedCell.row;
@@ -20,12 +18,6 @@ const InputPanel = () => {
       newBoard[row][col] = e.target.innerHTML;
     }
 
-    if (solvedBoard[row][col] === e.target.innerHTML) {
-      console.log("correct");
-    } else {
-      console.log("F");
-    }
-
     dispatch({
       type: actionTypes.setBoard,
       board: newBoard,
@@ -34,12 +26,24 @@ const InputPanel = () => {
 
   const numpadArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+  const resetBoard = () => {
+    let newBoard = JSON.parse(JSON.stringify(initialBoard));
+
+    dispatch({
+      type: actionTypes.setBoard,
+      board: newBoard,
+    });
+  };
+
   return (
     <>
       <div className="inputContainer">
         <div className="actionIcon">
-          <i className="fa fa-eraser" aria-hidden="true"></i>
-          <i className="fa fa-pencil" aria-hidden="true"></i>
+          <i className="fa-solid fa-rotate-right" aria-hidden="true"></i>
+          <i
+            onClick={() => resetBoard()}
+            className="fa-solid fa-repeat"
+          ></i>{" "}
           <i className="fa fa-undo circle-icon"></i>
         </div>
         <div className="numPad">
