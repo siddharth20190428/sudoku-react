@@ -25,22 +25,26 @@
 
 .header .header-left {
   margin-left: 1rem;
+  color: var(--text-color);
 }
 
 .header .timer {
-  background-color: #fffdc4;
+  background-color: var(--danger);
+  color: var(--text-color);
   padding: 0.8rem 2.4rem;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 2px;
-  border-radius: 7px;
-  box-shadow: 0 5px 3px #f7e275;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px -10px #000;
 }
 
 .header .header-right .MuiTypography-displayBlock {
+  color: var(--text-color);
   font-size: 18px;
   font-weight: 600;
   font-family: inherit;
+
   letter-spacing: 1 px;
 }
 
@@ -56,7 +60,7 @@
   grid-template-columns: repeat(3, 80px);
   grid-template-rows: repeat(3, 80px);
   margin-top: 5px;
-  gap: 10px;
+  gap: 20px;
 }
 
 .inputContainer {
@@ -82,17 +86,22 @@
 .numPad > div:hover,
 .actionIcon > i:hover {
   border: 1px solid transparent;
-  background-color: #ff7b1a;
-  color: #fff;
+
+  background-color: #7f5af0;
+  color: var(--text-color);
+  transform: translateY(-5px);
 }
 
 .numPad > div:active,
 .actionIcon > i:active {
-  transform: scale(0.98);
+  transform: scale(1);
 }
 
 .actionIcon {
-  margin: 10px;
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .actionIcon > i {
@@ -100,8 +109,9 @@
   margin: 8px;
   color: black;
   background-color: #fffffe;
-  width: 60px;
-  height: 60px;
+  font-size: 2rem;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;

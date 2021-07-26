@@ -3,7 +3,8 @@ import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
 const InputPanel = () => {
-  const [{ board, selectedCell, solvedBoard }, dispatch] = useStateValue();
+  const [{ board, selectedCell, solvedBoard, initialBoard }, dispatch] =
+    useStateValue();
 
   // console.log(selectedCell.currVal);
 
@@ -12,7 +13,10 @@ const InputPanel = () => {
     let row = selectedCell.row;
     let col = selectedCell.col;
 
-    if (selectedCell.currVal === "") {
+    if (
+      initialBoard[row][col] !== "" &&
+      board[row][col] !== solvedBoard[row][col]
+    ) {
       newBoard[row][col] = e.target.innerHTML;
     }
 
@@ -36,7 +40,7 @@ const InputPanel = () => {
         <div className="actionIcon">
           <i className="fa fa-eraser" aria-hidden="true"></i>
           <i className="fa fa-pencil" aria-hidden="true"></i>
-          <i className="fa fa-undo fa-1.5x circle-icon"></i>
+          <i className="fa fa-undo circle-icon"></i>
         </div>
         <div className="numPad">
           {numpadArr.map((val, i) => (

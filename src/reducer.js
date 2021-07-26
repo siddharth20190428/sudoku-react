@@ -5,8 +5,8 @@ const board = sudoku.generator.generate(38);
 const solvedBoard = sudoku.solver.solve(board);
 
 export const initialState = {
+  initialBoard: sudoku.conversions.stringToGrid(board),
   board: sudoku.conversions.stringToGrid(board),
-
   solvedBoard: sudoku.conversions.stringToGrid(solvedBoard),
 
   selectedCell: {

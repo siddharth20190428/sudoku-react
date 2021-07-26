@@ -3,7 +3,8 @@ import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
 const SudokuBoard = () => {
-  const [{ board, solvedBoard, selectedCell }, dispatch] = useStateValue();
+  const [{ board, selectedCell, initialBoard, solvedBoard }, dispatch] =
+    useStateValue();
 
   let cellArr = [];
 
@@ -69,6 +70,16 @@ const SudokuBoard = () => {
                     index === selectedCell.col ||
                     gridArea
                       ? "dim-highlight"
+                      : ""
+                  } ${
+                    initialBoard[rowIndex][index] === "." &&
+                    board[rowIndex][index] === solvedBoard[rowIndex][index]
+                      ? "correct"
+                      : ""
+                  } ${
+                    selectedCell.currVal !== "." &&
+                    cell === selectedCell.currVal
+                      ? "num-highlight"
                       : ""
                   }
                 `}
