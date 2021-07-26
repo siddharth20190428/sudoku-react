@@ -4,14 +4,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff77a;
+  position: relative;
 }
 
 .game {
   display: flex;
+  margin-top: 3rem;
 }
 
 .board {
-  border: 2px solid black;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
   width: 450px;
   height: 450px;
   display: grid;
@@ -19,26 +24,29 @@
 }
 .row {
   display: grid;
+
   grid-template-columns: repeat(9, 1fr);
 }
+
 .col {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fffffe;
 }
 .nr {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #fff77a;
 }
 
 .nc {
-  border-right: 1px solid #aaa;
+  border-right: 1px solid #f1e864;
 }
 
 .row-end {
-  border-bottom: 2px solid black;
+  margin-bottom: 4px;
 }
 .col-end {
-  border-right: 2px solid black;
+  margin-right: 4px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -54,9 +62,12 @@ input[type="number"] {
 }
 
 .dim-highlight {
-  background-color: rgba(0, 255, 255, 0.267) !important;
+  background-color: #f1eab5 !important;
 }
 
 .highlight {
-  background-color: aqua !important;
+  /* background-color: #ff791ad7 !important; */
+  background-color: #fffffe !important;
+  border: 4px solid #fe7819d2;
+  border-radius: 3px;
 }

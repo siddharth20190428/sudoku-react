@@ -28,15 +28,6 @@ const InputPanel = () => {
     });
   };
 
-  // const event = (row, col) => {
-  //   dispatch({
-  //     type: actionTypes.setSelectedCell,
-  //     cell: { row, col },
-  //   });
-  // };
-
-  // console.log(event);
-
   const numpadArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (

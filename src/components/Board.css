@@ -12,61 +12,83 @@
   height: 450px;
 }
 
-.grid-item {
-  border: 1px solid #4d5e74;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.sub-grid-item {
-  border: 0.5px solid #d7dce4;
-  font-size: 30px;
-  text-align: center;
-  color: #485a71;
-}
-
 .header {
-  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.2rem 1rem;
+  position: fixed;
+  top: 0;
   margin-bottom: 20px;
-  display: block;
+}
+
+.header .header-left {
+  margin-left: 1rem;
+}
+
+.header .timer {
+  background-color: #fffdc4;
+  padding: 0.8rem 2.4rem;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 7px;
+  box-shadow: 0 5px 3px #f7e275;
+}
+
+.header .header-right .MuiTypography-displayBlock {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 1 px;
+}
+
+.MuiMenu-paper {
+  width: 200px !important;
+  top: 12% !important;
 }
 
 .numPad {
   width: 100%;
   height: fit-content;
-  float: right;
   display: grid;
   grid-template-columns: repeat(3, 80px);
-  grid-template-rows: repeat(3, 110px);
+  grid-template-rows: repeat(3, 80px);
   margin-top: 5px;
   gap: 10px;
 }
 
 .inputContainer {
   margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .numPad > div {
-  background-color: #eaeef4;
+  background-color: #fffffe;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0072e3;
   font-size: 35px;
-  border: 1px solid #485a71;
+  border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .numPad > div:hover,
 .actionIcon > i:hover {
-  background-color: #e2e5eb;
+  border: 1px solid transparent;
+  background-color: #ff7b1a;
+  color: #fff;
 }
 
 .numPad > div:active,
 .actionIcon > i:active {
-  transform: scale(0.99);
+  transform: scale(0.98);
 }
 
 .actionIcon {
@@ -74,10 +96,10 @@
 }
 
 .actionIcon > i {
-  border: 1px solid #485a71;
+  border: 1px solid black;
   margin: 8px;
-  color: #0474e3;
-  background: #eaeef4;
+  color: black;
+  background-color: #fffffe;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -85,8 +107,4 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
-
-.timmer {
-  margin-left: 200px;
 }
