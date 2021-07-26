@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
+import SimpleModal from "./Modal";
 
 const SudokuBoard = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const [{ board, selectedCell, initialBoard, solvedBoard }, dispatch] =
     useStateValue();
 
   let cellArr = [];
 
   if (JSON.stringify(board) === JSON.stringify(solvedBoard)) {
-    alert("you won");
+    handleOpen();
+    console.log("you won");
   }
 
   const addNumberOnClick = (e, row, col) => {
@@ -32,72 +44,81 @@ const SudokuBoard = () => {
   return (
     <div className="board">
       {/* nr = normal row, nc = normal column */}
-      {board.map((rowArray, rowIndex) => {
-        return (
-          <div
-            key={`row-${rowIndex}`}
-            className={`row ${
-              rowIndex !== 8 ? (rowIndex % 3 === 2 ? "row-end" : "nr") : ""
-            } `}
-          >
-            {rowArray.map((cell, index) => {
-              let currR = Math.floor(rowIndex / 3),
-                currC = Math.floor(index / 3),
-                selR = Math.floor(selectedCell.row / 3),
-                selC = Math.floor(selectedCell.col / 3);
-              let gridArea = selR === currR && selC === currC;
+      {open ? (
+        <SimpleModal
+          open={open}
+          handleClose={handleClose}
+          handleOpen={handleOpen}
+        />
+      ) : (
+        board.map((rowArray, rowIndex) => {
+          return (
+            <div
+              key={`row-${rowIndex}`}
+              className={`row ${
+                rowIndex !== 8 ? (rowIndex % 3 === 2 ? "row-end" : "nr") : ""
+              } `}
+            >
+              {rowArray.map((cell, index) => {
+                let currR = Math.floor(rowIndex / 3),
+                  currC = Math.floor(index / 3),
+                  selR = Math.floor(selectedCell.row / 3),
+                  selC = Math.floor(selectedCell.col / 3);
+                let gridArea = selR === currR && selC === currC;
 
-              // let myStyle = {};
+                // let myStyle = {};
 
-              // if (selectedCell.correct === "1") {
-              //   myStyle = {
-              //     backgroundColor: "green",
-              //   };
-              // } else if (selectedCell.correct === "0") {
-              //   myStyle = {
-              //     color: "red",
-              //   };
-              // }
+                // if (selectedCell.correct === "1") {
+                //   myStyle = {
+                //     backgroundColor: "green",
+                //   };
+                // } else if (selectedCell.correct === "0") {
+                //   myStyle = {
+                //     color: "red",
+                //   };
+                // }
 
-              return (
-                <div
-                  // style={myStyle}
-                  key={`cell-${rowIndex}-${index}`}
-                  className={`col ${
-                    index !== 8 ? (index % 3 === 2 ? "col-end " : "nc") : ""
-                  } ${
-                    rowIndex === selectedCell.row && index === selectedCell.col
-                      ? "highlight"
-                      : ""
-                  } ${
-                    rowIndex === selectedCell.row ||
-                    index === selectedCell.col ||
-                    gridArea
-                      ? "dim-highlight"
-                      : ""
-                  } ${
-                    initialBoard[rowIndex][index] === "." &&
-                    board[rowIndex][index] === solvedBoard[rowIndex][index]
-                      ? "correct"
-                      : ""
-                  } ${
-                    selectedCell.currVal !== "." &&
-                    cell === selectedCell.currVal
-                      ? "num-highlight"
-                      : ""
-                  }
+                return (
+                  <div
+                    // style={myStyle}
+                    key={`cell-${rowIndex}-${index}`}
+                    className={`col ${
+                      index !== 8 ? (index % 3 === 2 ? "col-end " : "nc") : ""
+                    } ${
+                      rowIndex === selectedCell.row &&
+                      index === selectedCell.col
+                        ? "highlight"
+                        : ""
+                    } ${
+                      rowIndex === selectedCell.row ||
+                      index === selectedCell.col ||
+                      gridArea
+                        ? "dim-highlight"
+                        : ""
+                    } ${
+                      initialBoard[rowIndex][index] === "." &&
+                      board[rowIndex][index] === solvedBoard[rowIndex][index]
+                        ? "correct"
+                        : ""
+                    } ${
+                      selectedCell.currVal !== "." &&
+                      cell === selectedCell.currVal
+                        ? "num-highlight"
+                        : ""
+                    }
                 `}
-                  onClick={(e) => {
-                    addNumberOnClick(e, rowIndex, index);
-                  }}
-                >
-                  {cell !== "." ? cell : ""}
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+                    onClick={(e) => {
+                      addNumberOnClick(e, rowIndex, index);
+                    }}
+                  >
+                    {cell !== "." ? cell : ""}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };

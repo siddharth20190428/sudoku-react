@@ -118,3 +118,35 @@
   justify-content: center;
   cursor: pointer;
 }
+
+.modal .makeStyles-paper-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #242629;
+  border-radius: 20px;
+  padding: 4rem 1.5rem;
+  color: var(--text-color);
+  box-shadow: 0 5px 15px -10px #000;
+  transition: 0.5s ease 0.3s;
+}
+
+.modal .makeStyles-paper-1 h2 {
+  margin-top: 1.7rem;
+}
+
+.modal .makeStyles-paper-1 p {
+  margin: 2rem 0 0;
+  background-color: var(--highlight);
+  font-size: 1.1rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal .makeStyles-paper-1 p:hover {
+  transition: 0.3s;
+  box-shadow: 0 5px 15px -10px #000;
+}

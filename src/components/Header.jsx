@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -12,7 +12,7 @@ const options = ["Easy", "Medium", "Hard"];
 
 function DifficultyMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -21,6 +21,16 @@ function DifficultyMenu() {
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     setAnchorEl(null);
+    let displayNums = 0;
+    if (index === 0) {
+      displayNums = 38;
+    } else if (index === 1) {
+      displayNums = 30;
+    } else if (index === 2) {
+      displayNums = 25;
+    }
+    localStorage.setItem("displayNums", displayNums);
+    window.location.reload();
   };
 
   const handleClose = () => {

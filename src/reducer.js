@@ -1,7 +1,12 @@
 import SudokuToolCollection from "sudokutoolcollection";
 const sudoku = SudokuToolCollection();
 
-let board = sudoku.generator.generate(38);
+let displayNums =
+  localStorage.getItem("displayNums") !== undefined
+    ? +localStorage.getItem("displayNums")
+    : 38;
+
+let board = sudoku.generator.generate(displayNums);
 const solvedBoard = sudoku.solver.solve(board);
 
 export const initialState = {
