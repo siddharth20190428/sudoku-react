@@ -1,10 +1,19 @@
-import "./Board.css";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
+import { useStopwatch } from "react-timer-hook";
+
+function pad0(value) {
+  return value.toString().padStart(2, "0");
+}
 
 const InputPanel = () => {
   const [{ board, selectedCell, solvedBoard, initialBoard }, dispatch] =
     useStateValue();
+
+  const { seconds, minutes, hours, isRunning, start, pause, reset } =
+    useStopwatch({
+      autoStart: true,
+    });
 
   const setNum = (e) => {
     let newBoard = [...board];
@@ -27,7 +36,7 @@ const InputPanel = () => {
 
   const resetBoard = () => {
     let newBoard = JSON.parse(JSON.stringify(initialBoard));
-
+    reset();
     dispatch({
       type: actionTypes.setBoard,
       board: newBoard,
@@ -40,12 +49,22 @@ const InputPanel = () => {
     <>
       <div className="inputContainer">
         <div className="actionIcon">
-          <i className="fa-solid fa-rotate-right" aria-hidden="true"></i>
-          <i
-            onClick={() => resetBoard()}
-            className="fa-solid fa-repeat"
-          ></i>{" "}
-          <i className="fa fa-undo circle-icon"></i>
+          {/* <i className="fa-solid fa-rotate-right" aria-hidden="true"></i> */}
+          <div className="timer">
+            <div className="timer-label">
+              <span>{pad0(hours)}</span>:<span>{pad0(minutes)}</span>:
+              <span>{pad0(seconds)}</span>
+            </div>
+          </div>
+
+          {isRunning ? (
+            <i onClick={pause} className="fa-solid fa-circle-pause"></i>
+          ) : (
+            <i onClick={start} className="fa-solid fa-play"></i>
+          )}
+
+          <i onClick={() => resetBoard()} className="fa-solid fa-repeat"></i>
+          {/* <i className="fa fa-undo circle-icon"></i> */}
         </div>
         <div className="numPad">
           {numpadArr.map((val, i) => (

@@ -6,7 +6,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
-import "./Board.css";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
@@ -80,11 +79,7 @@ const Header = () => {
       <div className="header-left">
         <h2>Team Evolving</h2>
       </div>
-      <div className="header-mid">
-        <div className="timer">
-          <div className="timer-label">00:04:16</div>
-        </div>
-      </div>
+      <h2>Sudoku Challenge</h2>
       <div className="header-right">
         <div className="dropdown">{DifficultyMenu()}</div>
       </div>

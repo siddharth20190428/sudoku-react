@@ -18,9 +18,12 @@
   position: relative;
 }
 
+/* Board */
 .game {
   display: flex;
   margin-top: 3rem;
+  width: 55%;
+  justify-content: space-around;
 }
 
 @keyframes myanimation {
@@ -33,18 +36,16 @@
 }
 
 .board {
-  animation: myanimation 0.5s ease-in;
-  border: 2px solid #fff;
-  border-radius: 8px;
+  animation: myanimation 0.4s;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
   width: 450px;
   height: 450px;
   display: grid;
   grid-template-rows: repeat(9, 1fr);
 }
+
 .row {
   display: grid;
-
   grid-template-columns: repeat(9, 1fr);
 }
 
@@ -68,7 +69,9 @@
 .col-end {
   margin-right: 4px;
 }
+/* Board */
 
+/* Fixes */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -80,7 +83,9 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+/* Fixes */
 
+/* Highlight classes */
 .dim-highlight {
   background-color: #bca0dc !important;
 }
@@ -95,7 +100,166 @@ input[type="number"] {
   font-weight: 600 !important;
   color: var(--additional);
 }
+
+.red-num {
+  color: var(--danger);
+}
+
 .num-highlight {
   border: 1px solid #555;
   background-color: #7c5295;
 }
+
+/* Highlight classes */
+
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  width: 100%;
+  padding: 1.2rem 1rem;
+  position: fixed;
+  top: 0;
+  margin-bottom: 20px;
+}
+
+.header .header-left {
+  margin-left: 1rem;
+  color: var(--text-color);
+}
+
+.timer {
+  background-color: var(--danger);
+  color: var(--text-color);
+  width: 150px;
+  text-align: center;
+  padding: 0.8rem 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px -10px #000;
+}
+
+.header .header-right .MuiTypography-displayBlock {
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 600;
+  font-family: inherit;
+
+  letter-spacing: 1 px;
+}
+
+.MuiMenu-paper {
+  width: 200px !important;
+  top: 12% !important;
+}
+/* Header */
+
+/* Numpad */
+.numPad {
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  margin-top: 5px;
+  gap: 24px;
+}
+
+.inputContainer {
+  width: 36%;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.numPad > div {
+  background-color: #fffffe;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.numPad > div:hover,
+.actionIcon > i:hover {
+  border: 1px solid transparent;
+
+  background-color: #7f5af0;
+  color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+.numPad > div:active,
+.actionIcon > i:active {
+  transform: scale(1);
+}
+/* Numpad */
+
+/* Action Icons */
+.actionIcon {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionIcon > i {
+  border: 1px solid black;
+  color: #6366f1;
+  background-color: #fffffe;
+  font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+/* Action Icons */
+
+/* Modal */
+.modal .makeStyles-paper-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #242629;
+  border-radius: 20px;
+  padding: 4rem 1.5rem;
+  color: var(--text-color);
+  box-shadow: 0 5px 15px -10px #000;
+  transition: 0.5s ease 0.3s;
+}
+
+.modal .makeStyles-paper-1 h2 {
+  margin-top: 1.7rem;
+}
+
+.modal .makeStyles-paper-1 p {
+  margin: 2rem 0 0;
+  background-color: var(--highlight);
+  font-size: 1.1rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal .makeStyles-paper-1 p:hover {
+  transition: 0.3s;
+  box-shadow: 0 5px 15px -10px #000;
+}
+
+/* Modal */
