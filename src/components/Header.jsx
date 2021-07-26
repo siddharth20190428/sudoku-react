@@ -7,12 +7,15 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
 import "./Board.css";
+import { actionTypes } from "../reducer";
+import { useStateValue } from "../StateProvider";
 
 const options = ["Easy", "Medium", "Hard"];
 
 function DifficultyMenu() {
+  const [{ difficulty }, dispatch] = useStateValue();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(difficulty);
 
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -21,15 +24,12 @@ function DifficultyMenu() {
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     setAnchorEl(null);
-    let displayNums = 0;
-    if (index === 0) {
-      displayNums = 38;
-    } else if (index === 1) {
-      displayNums = 30;
-    } else if (index === 2) {
-      displayNums = 25;
-    }
-    localStorage.setItem("displayNums", displayNums);
+
+    dispatch({
+      type: actionTypes.setDifficulty,
+      difficulty: index,
+    });
+    localStorage.setItem("difficulty", index);
     window.location.reload();
   };
 
