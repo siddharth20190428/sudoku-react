@@ -22,6 +22,8 @@
 .game {
   display: flex;
   margin-top: 3rem;
+  width: 55%;
+  justify-content: space-around;
 }
 
 @keyframes myanimation {
@@ -116,6 +118,7 @@ input[type="number"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--text-color);
   width: 100%;
   padding: 1.2rem 1rem;
   position: fixed;
@@ -126,13 +129,14 @@ input[type="number"] {
 .header .header-left {
   margin-left: 1rem;
   color: var(--text-color);
-  width: 20%;
 }
 
-.header .timer {
+.timer {
   background-color: var(--danger);
   color: var(--text-color);
-  padding: 0.8rem 2.4rem;
+  width: 150px;
+  text-align: center;
+  padding: 0.8rem 0;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -157,16 +161,16 @@ input[type="number"] {
 
 /* Numpad */
 .numPad {
-  width: 100%;
   height: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 80px);
   grid-template-rows: repeat(3, 80px);
   margin-top: 5px;
-  gap: 20px;
+  gap: 24px;
 }
 
 .inputContainer {
+  width: 36%;
   margin-left: 30px;
   display: flex;
   flex-direction: column;
@@ -192,7 +196,7 @@ input[type="number"] {
 
   background-color: #7f5af0;
   color: var(--text-color);
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
 .numPad > div:active,
@@ -207,16 +211,16 @@ input[type="number"] {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .actionIcon > i {
   border: 1px solid black;
-  margin: 8px;
   color: #6366f1;
   background-color: #fffffe;
-  font-size: 2rem;
-  width: 70px;
-  height: 70px;
+  font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;

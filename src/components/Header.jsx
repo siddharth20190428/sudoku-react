@@ -77,13 +77,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-left">
-        <h2>Team Evolving's Sudoku Challenge</h2>
+        <h2>Team Evolving</h2>
       </div>
-      <div className="header-mid">
-        <div className="timer">
-          <div className="timer-label">00:04:25</div>
-        </div>
-      </div>
+      <h2>Sudoku Challenge</h2>
       <div className="header-right">
         <div className="dropdown">{DifficultyMenu()}</div>
       </div>
