@@ -8,6 +8,7 @@ const InputPanel = () => {
 
   const setNum = (e) => {
     let newBoard = [...board];
+
     let row = selectedCell.row;
     let col = selectedCell.col;
 
