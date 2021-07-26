@@ -48,7 +48,6 @@ const InputPanel = () => {
     <>
       <div className="inputContainer">
         <div className="actionIcon">
-          {/* <i className="fa-solid fa-rotate-right" aria-hidden="true"></i> */}
           <div className="timer">
             <div className="timer-label">
               <span>{pad0(hours)}</span>:<span>{pad0(minutes)}</span>:
@@ -63,7 +62,6 @@ const InputPanel = () => {
           )}
 
           <i onClick={() => resetBoard()} className="fa-solid fa-repeat"></i>
-          {/* <i className="fa fa-undo circle-icon"></i> */}
         </div>
         <div className="numPad">
           {numpadArr.map((val, i) => (

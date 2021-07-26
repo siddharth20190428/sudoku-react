@@ -68,21 +68,8 @@ const SudokuBoard = () => {
                   selC = Math.floor(selectedCell.col / 3);
                 let gridArea = selR === currR && selC === currC;
 
-                // let myStyle = {};
-
-                // if (selectedCell.correct === "1") {
-                //   myStyle = {
-                //     backgroundColor: "green",
-                //   };
-                // } else if (selectedCell.correct === "0") {
-                //   myStyle = {
-                //     color: "red",
-                //   };
-                // }
-
                 return (
                   <div
-                    // style={myStyle}
                     key={`cell-${rowIndex}-${index}`}
                     className={`col ${
                       index !== 8 ? (index % 3 === 2 ? "col-end " : "nc") : ""
