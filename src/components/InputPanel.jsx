@@ -1,4 +1,3 @@
-import "./Board.css";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 

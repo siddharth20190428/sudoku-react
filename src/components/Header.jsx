@@ -6,7 +6,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
-import "./Board.css";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
@@ -78,7 +77,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-left">
-        <h2>Team Evolving</h2>
+        <h2>Team Evolving's Sudoku Challenge</h2>
       </div>
       <div className="header-mid">
         <div className="timer">
